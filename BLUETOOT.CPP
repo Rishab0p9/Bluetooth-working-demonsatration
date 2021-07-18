@@ -288,7 +288,6 @@ int ConnectingAs()
  {
  cout<<"Wait for server"<<endl;
  close();
-// cout<<Dname<<name;
  p=0;
  }
 }
@@ -319,10 +318,8 @@ protected:
        puts("Looking for a device to connect\n");
        puts("...............................................................................\n");
        puts("................................................................................\n");
-      gotoxy(30,12);
-      cout<<"....................."<<endl;
-/*     gotoxy(34,45);
-      getch();   */
+       gotoxy(30,12);
+       cout<<"....................."<<endl;
 
        if(open()==1)
        {
@@ -340,11 +337,6 @@ struct node GetBondedDevice()
  cout<<"SHARE YOUR FILE WITH BLUETOOTH FIRST TIME, CHOOSE THE SLAVE DEVICE"<<endl;
  else
  peek();
- /*while(top!=NULL)
- {
-   cout<<top->data;
-   top=top->next;
- } */
 return *top;
 }
 
@@ -366,10 +358,7 @@ if(check()==1)
     if(y==1)
     {
      cout<<"Connection Request Sent"<<endl;
-   /*  gotoxy(30,12);
-     cout<<"..................................\n";
-     getch(); */
-
+ 
      if(acceptRequest()==1)
      {
        cout<<"Paired successfully For viewing the MAC address of "<<Dname<<" press 1"<<endl;
@@ -396,29 +385,25 @@ if(check()==1)
 };
 
 /*
-class BluetoothProfile
-{
-   protected:
 	int A2DP; //Advanced audio distribution Profile
 	int AVRCP; //Audio video remote control profile
-     //	int BIP,BPP,CIP,CTP,DUN,FAX,FTP,GAVDP,GOEP,HFP;
-   //	int HSP,HID,ICP,VDP,SYNC,SSP,SDAP,PAN,OPP;        //profiles
-     //  int .sms[2010];  //extension
-   //    int .jpg,.png,.jpeg,.mp3,.mp4,.avi,.wmv,.mov,.qt,.docx,.ppt,.exe,.txt;
-   //    int .pdf,.html,
-       int SAP,MAP; //SIM access profiles and message access profile
-       int PBAP; //phone book access profile
-       int OPP; //Object push profile
-       int OBEX; //Object exchange over logical link control and Adaptation protocol
-       int HFP,HSP; //headset profiles
-       int HDF; //Health device profile
-       int SPP; //serial port profile  for pairing
-       int DIP; //device Id profile
-public:
-   void Function()
-{
-	 A2DP=1; //Advanced audio distribution Profile
-	 AVRCP=1; //Audio video remote control profile
+     	int BIP,BPP,CIP,CTP,DUN,FAX,FTP,GAVDP,GOEP,HFP;
+   	int HSP,HID,ICP,VDP,SYNC,SSP,SDAP,PAN,OPP;        
+        int .sms[2010];  //extension
+        int .jpg,.png,.jpeg,.mp3,.mp4,.avi,.wmv,.mov,.qt,.docx,.ppt,.exe,.txt;
+        int .pdf,.html,
+        int SAP,MAP; //SIM access profiles and message access profile
+        int PBAP; 
+	//phone book access profile
+        int OPP; //Object push profile
+        int OBEX; //Object exchange over logical link control and Adaptation protocol
+        int HFP,HSP; //headset profiles
+        int HDF; //Health device profile
+        int SPP; //serial port profile  for pairing
+        int DIP; //device Id profile
+
+	A2DP=1; //Advanced audio distribution Profile
+	AVRCP=1; //Audio video remote control profile
 	SAP=0,MAP=0; //SIM access profiles and message access profile
 	PBAP=0; //phone book access profile
 	OPP=1; //Object push profile
@@ -427,9 +412,9 @@ public:
 	HDF=1; //Health device profile
 	SPP=1; //serial port profile  for pairing
 	DIP=0; //device Id profile
-}
 
- }; */
+
+  */
 
  class BluetoothServerSocket :private BluetoothDevice, private Device2
   {
@@ -461,13 +446,13 @@ protected:
        int CTP;
        int DUN;
        int SYNC;
-     int img;
-     int vd;
-     int ad;  //duration or (say)size
-    int docs;
-    int tether;
-    int sms;
-    int calls;
+       int img;
+       int vd;
+       int ad;  //duration or (say)size
+       int docs;
+       int tether;
+       int sms;
+       int calls;
 
 
 public:
@@ -544,8 +529,7 @@ public:
        int HDF; //Health device profile
        int SPP; //serial port profile  for pairing
        int DIP; //device Id profile
-
-       int img,vd,ad,docs;      */
+ */
 
   switch(get)
  {
@@ -587,11 +571,12 @@ private:
      }
 
     return 1;
-}
+  }
 private:
   int sendMedia1(int k)
-  {            int dgt;
-abc:     cout<<"Write the location from where to select the files\n"<<endl;
+  {          
+  int dgt;
+  abc:  cout<<"Write the location from where to select the files\n"<<endl;
 	   gets(loc);
      if(A2DP==1 && AVRCP==1)
      {
@@ -600,10 +585,6 @@ abc:     cout<<"Write the location from where to select the files\n"<<endl;
       {
        cout<<"succesfully transferred 1 0f 1"<<endl;
        close();
-     /*   cout<<"If you want to share more press 1"<<endl;
-      cin>>dgt;
-      if(dgt==1)
-      goto abc;   */
       }
 
      }
@@ -699,14 +680,12 @@ private:
        close();
       }
      }
-  else
-   cout<<"This file type can not be shared"<<endl;
-   close();
+      else
+      cout<<"This file type can not be shared"<<endl;
+      close();
 
     return 1;
 }
-
-
 
 
   };
@@ -716,9 +695,9 @@ private:
   //MAC address
   char BluetoothDevice::BD_ADDR[48] = {'0','0',':','1','1',':','2','2',':','3','3',':','F','F',':','E','E',':','J','J',':','5','5'};
   int BluetoothSocket::p;
- char Device2:: BD_ADDR_2[]={'1','1',':','4','4',':','6','8',':','2','B',':','4','0',':','7','7',':','D','D',':','4','D'};
- char Device2::Dname[]={'D','2'};
- char Device2::Dtype[]={'M','o','b','i','l','e'};
+  char Device2:: BD_ADDR_2[]={'1','1',':','4','4',':','6','8',':','2','B',':','4','0',':','7','7',':','D','D',':','4','D'};
+  char Device2::Dname[]={'D','2'};
+  char Device2::Dtype[]={'M','o','b','i','l','e'};
   int main()
   {
     clrscr();
@@ -734,19 +713,13 @@ private:
     two.open();
     two.About();
     BluetoothSocket S; //fourth
-//    S.check();
- //   S.B();
-//    S.getBondedDevice();
-//  S.ConnectingAs();
+
     S.DiscoverDevice();
-  //  S.s();
-  //  S.FindDevice();
-//  BluetoothProfile P;
-// P.Function();
+
 
  BluetoothServerSocket T;
   T.see();
   T.Function();
-    getch();
-    return 0;
+  getch();
+  return 0;
     }
